@@ -133,12 +133,12 @@ def check_high_score(stats, score_board):
         score_board.prep_high_score()
 
 
-def check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets):
+def check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets, score_board):
     """检查是否有外星人到达屏幕底端"""
     screen_rect = screen.get_rect()
     for alien in aliens:
         if alien.rect.bottom >= screen_rect.bottom:
-            ship_hit(ai_settings, stats, screen, ship, aliens, bullets)
+            ship_hit(ai_settings, stats, screen, ship, aliens, bullets, score_board)
             break
 
 
@@ -150,7 +150,7 @@ def update_aliens(ai_settings, stats, screen, ship, aliens, bullets, score_board
     if pygame.sprite.spritecollideany(ship, aliens):
         ship_hit(ai_settings, stats, screen, ship, aliens, bullets, score_board)
     # 检测外星人是否到达底端
-    check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets)
+    check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets, score_board)
 
 
 def ship_hit(ai_settings, stats, screen, ship, aliens, bullets, score_board):
