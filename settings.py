@@ -9,6 +9,7 @@ class Settings():
         # 飞船设置
         self.ship_image_path = "image/ship.bmp"
         self.ship_speed = 0.5
+        self.ship_limit = 3
         # 子弹设置
         self.bullet_width = 3
         self.bullet_height = 15
@@ -17,6 +18,10 @@ class Settings():
         self.bullet_allowed = 3
         # 外星人设置
         self.alien_image_path = "image/alien.bmp"
+        self.alien_speed = 0.5
+        self.fleet_drop_speed = 20
+        # fleet_direction为1表示右移，为-1表示左移
+        self.fleet_direction = 1
 
     def get_screen_width(self):
         return self.screen_width
@@ -45,11 +50,20 @@ class Settings():
     def get_ship_speed(self):
         return self.ship_speed
 
+    def get_alien_speed(self):
+        return self.alien_speed
+
+    def get_fleet_drop_speed(self):
+        return self.fleet_drop_speed
+
     def get_bullet_speed(self):
         return self.bullet_speed
 
     def get_bullet_allowed(self):
         return self.bullet_allowed
+
+    def get_fleet_direction(self):
+        return self.fleet_direction
 
     def set_bg_color(self, x, y, z):
         self.bg_color = (x, y, z)
@@ -69,8 +83,17 @@ class Settings():
     def set_bullet_speed(self, bullet_speed):
         self.bullet_speed = bullet_speed
 
+    def set_alien_speed(self, alien_speed):
+        self.alien_speed = alien_speed
+
+    def set_fleet_drop_speed(self, fleet_drop_speed):
+        self.fleet_drop_speed = fleet_drop_speed
+
     def set_bullet_width(self, bullet_width):
         self.bullet_width = bullet_width
+
+    def set_fleet_direction(self,fleet_direction):
+        self.fleet_direction = fleet_direction
 
     def set_bullet_height(self, bullet_height):
         self.bullet_height = bullet_height

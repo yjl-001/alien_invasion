@@ -20,3 +20,15 @@ class Alien(Sprite):
     def blitme(self):
         """在指定位置绘制外星人"""
         self.screen.blit(self.image, self.rect)
+
+    def update(self):
+        """移动外星人"""
+        self.position_x += self.ai_settings.get_alien_speed() * self.ai_settings.get_fleet_direction()
+        self.rect.x = self.position_x
+
+    def check_edges(self):
+        screen_rect = self.screen.get_rect()
+        if self.rect.right >= screen_rect.right:
+            return True
+        elif self.rect.left <= 0:
+            return True
